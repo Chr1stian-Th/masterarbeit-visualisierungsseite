@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-// Eagerly import all JSON files from the data folder (3 levels up from src/hooks/).
-// Vite resolves these at build time, so they work on Vercel with no server-side filesystem access.
-const dataModules = import.meta.glob('../../../data/*.json', { eager: true, query: '?raw', import: 'default' });
+// Lazy glob: each JSON file becomes its own chunk, loaded after the page shell renders.
+// Vite resolves the module graph at build time so this works on Vercel without filesystem access.
+const dataModules = import.meta.glob('../../../data/*.json', { query: '?raw', import: 'default' });
 
 export function useAutoLoader(onPickFiles: (fs: File[]) => Promise<void>) {
   const loaded = useRef(false);
@@ -11,13 +11,17 @@ export function useAutoLoader(onPickFiles: (fs: File[]) => Promise<void>) {
     if (loaded.current) return;
     loaded.current = true;
 
-    const files = Object.entries(dataModules).map(([filePath, content]) => {
-      const name = filePath.split('/').pop()!;
-      return new File([content as string], name, { type: 'application/json' });
-    });
+    const loadAll = async () => {
+      const files = await Promise.all(
+        Object.entries(dataModules).map(async ([filePath, load]) => {
+          const content = await (load as () => Promise<string>)();
+          const name = filePath.split('/').pop()!;
+          return new File([content], name, { type: 'application/json' });
+        })
+      );
+      await onPickFiles(files);
+    };
 
-    if (files.length > 0) {
-      void onPickFiles(files);
-    }
+    void loadAll();
   }, [onPickFiles]);
 }
