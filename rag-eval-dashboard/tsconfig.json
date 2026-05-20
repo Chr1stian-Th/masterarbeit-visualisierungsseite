@@ -20,7 +20,7 @@
     "noImplicitOverride": true,
     "exactOptionalPropertyTypes": false,
 
-    "types": ["node"],
+    "types": ["node", "vite/client"],
 
     "baseUrl": ".",
     "paths": {

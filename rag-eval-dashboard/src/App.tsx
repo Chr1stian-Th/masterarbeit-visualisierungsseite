@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { DEFAULT_COSTS } from '@/lib/cost';
 import { useTheme } from '@/hooks/useTheme';
 import { useFileLoader } from '@/hooks/useFileLoader';
+import { useAutoLoader } from '@/hooks/useAutoLoader';
 import { useFilters } from '@/hooks/useFilters';
 import { useDerivedData } from '@/hooks/useDerivedData';
 import { useCollapsibleSections } from '@/hooks/useCollapsibleSections';
@@ -33,6 +34,7 @@ export function App() {
 
   /* Files + filters + cost config */
   const loader = useFileLoader();
+  useAutoLoader(loader.onPickFiles);
   const { filters, setters } = useFilters();
   const [costs, setCosts] = useState<CostConfig>(DEFAULT_COSTS);
   const [charsPerToken, setCharsPerToken] = useState<number>(4);
