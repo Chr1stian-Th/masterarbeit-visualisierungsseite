@@ -1,6 +1,7 @@
 import type { EvalFile, GroupDim } from '@/types';
 import { fileLabel, shortModel } from './format';
 
+/** A grouping dimension with its machine key and human-readable label. */
 export interface DimDescriptor {
   key: GroupDim;
   label: string;
@@ -22,6 +23,7 @@ export const QUESTION_DIMS: DimDescriptor[] = [
 
 export const Q_DIM_KEYS: Set<GroupDim> = new Set(QUESTION_DIMS.map(d => d.key));
 
+/** Short difficulty label for a [0,1] score (e.g. 0.3 → "medium"). */
 export function diffLabel(d: number): string {
   if (d <= 0.2) return 'easy';
   if (d <= 0.4) return 'medium';
@@ -29,6 +31,7 @@ export function diffLabel(d: number): string {
   return 'v.hard';
 }
 
+/** Difficulty bucket string including the numeric range, used as a chart group key. */
 export function diffBucket(d: number): string {
   if (d <= 0.2) return 'easy (≤0.2)';
   if (d <= 0.4) return 'medium (0.2–0.4)';

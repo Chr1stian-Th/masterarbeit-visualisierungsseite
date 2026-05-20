@@ -24,6 +24,11 @@ import type {
   YMetric,
 } from '@/types';
 
+/**
+ * Root application component. Composes all global state hooks (file loading,
+ * filters, derived data, theme, section collapse) and renders the sidebar,
+ * the main content panels (overview, charts, tables), and overlay modals.
+ */
 export function App() {
   /* Theme */
   const { darkMode, toggle: toggleTheme } = useTheme();

@@ -11,11 +11,16 @@ import type {
 } from '@/types';
 import { ChartLegend } from './ChartLegend';
 
+/** Props for BarChart. */
 interface Props {
+  /** Pre-computed bar chart data from useDerivedData. */
   data: BarChartData;
   ciLevel: CILevel;
+  /** Whether to plot average score or pass rate on the y-axis. */
   yMetric: YMetric;
+  /** Per-metric color overrides keyed by metric name. */
   customColors: Record<string, string>;
+  /** Called when the user clicks a legend swatch to open the color picker. */
   onColorPick: (t: ColorPickerTarget) => void;
 }
 
@@ -31,6 +36,11 @@ interface TipState {
   color: string;
 }
 
+/**
+ * SVG bar chart comparing metrics across groups.
+ * Exposes an imperative `exportPng` handle via `ref` for PNG download.
+ * Renders confidence-interval whiskers when `lo`/`hi` are present in the data.
+ */
 export const BarChart = forwardRef<ChartExportHandle, Props>(function BarChart(
   { data, yMetric, customColors, onColorPick },
   ref

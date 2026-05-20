@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { parseFile } from '@/lib/fileParser';
 import type { EvalFile, QuestionMeta, SourceFile } from '@/types';
 
+/** State, event handlers, and batch operations returned by useFileLoader. */
 export interface UseFileLoaderResult {
   files: EvalFile[];
   sourceFiles: Record<string, SourceFile>;
@@ -11,6 +12,7 @@ export interface UseFileLoaderResult {
   dragOver: boolean;
   setDragOver: (over: boolean) => void;
 
+  /** Parse and ingest an array of File objects (from drag-drop or the file picker). */
   onPickFiles: (fs: File[]) => Promise<void>;
   onDrop: (e: React.DragEvent) => void;
   toggleFileSelected: (id: string, selected: boolean) => void;

@@ -1,7 +1,12 @@
 interface Props {
+  /** `no-files` — shown before any files are loaded; `no-matches` — shown when filters exclude all files. */
   variant: 'no-files' | 'no-matches';
 }
 
+/**
+ * Full-page placeholder displayed in the main content area.
+ * Variant `no-files` includes usage instructions; `no-matches` prompts the user to adjust filters.
+ */
 export function EmptyState({ variant }: Props) {
   if (variant === 'no-files') {
     return (

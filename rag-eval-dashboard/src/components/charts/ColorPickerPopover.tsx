@@ -10,6 +10,11 @@ interface Props {
   onClose: () => void;
 }
 
+/**
+ * Floating popover that lets users pick a custom color for a chart series.
+ * Shows a palette of swatches, a native color input, and Reset/Done buttons.
+ * Closes automatically when the user clicks outside the popover.
+ */
 export function ColorPickerPopover({
   target,
   customColors,

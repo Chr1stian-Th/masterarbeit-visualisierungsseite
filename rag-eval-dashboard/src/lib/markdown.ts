@@ -6,6 +6,7 @@
 const esc = (s: string): string =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+/** Apply inline Markdown (bold, italic, bold-italic, inline code, ==mark==) and return an HTML string. */
 export function inlineMd(t: string): string {
   return t
     .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
@@ -16,6 +17,12 @@ export function inlineMd(t: string): string {
     .replace(/==([^=]+)==/g, '<mark>$1</mark>');
 }
 
+/**
+ * Convert a Markdown string to an HTML string using the built-in subset parser.
+ * Supports headings, unordered/ordered lists, paragraphs, hr, blockquote,
+ * inline code, bold/italic, GFM pipe tables, and ==highlight==.
+ * Returns "" for falsy input.
+ */
 export function markdownToHtml(text: string | undefined | null): string {
   if (!text) return '';
   const lines = text.split('\n');

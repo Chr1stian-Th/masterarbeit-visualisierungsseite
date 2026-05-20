@@ -4,6 +4,12 @@ import { useEffect, useRef } from 'react';
 // Vite resolves the module graph at build time so this works on Vercel without filesystem access.
 const dataModules = import.meta.glob('../../../data/*.json', { query: '?raw', import: 'default' });
 
+/**
+ * On mount, eagerly loads all JSON files bundled under `data/` via Vite's
+ * import.meta.glob and passes them to `onPickFiles` as synthetic File objects.
+ * Runs only once (guarded by a ref) to prevent duplicate loads under React 18
+ * StrictMode double-invocation.
+ */
 export function useAutoLoader(onPickFiles: (fs: File[]) => Promise<void>) {
   const loaded = useRef(false);
 

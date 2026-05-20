@@ -13,6 +13,11 @@ interface Props {
   questionsMeta: Record<string, QuestionMeta>;
 }
 
+/**
+ * Detail modal for one per-question row. Shows question metadata (when available),
+ * input / output / ground truth text, per-metric scores with judge reasons, cost
+ * breakdown, and optional agentic pipeline metadata.
+ */
 export function QuestionModal({
   q,
   allMetrics,

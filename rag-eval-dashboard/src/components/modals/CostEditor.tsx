@@ -9,6 +9,10 @@ interface Props {
   onClose: () => void;
 }
 
+/**
+ * Runtime type guard for CostConfig JSON. Throws a descriptive Error when any
+ * entry is missing `input_per_1m` or `output_per_1m`.
+ */
 function isValidCostConfig(p: unknown): p is CostConfig {
   if (!p || typeof p !== 'object') return false;
   for (const k of Object.keys(p)) {
@@ -25,6 +29,10 @@ function isValidCostConfig(p: unknown): p is CostConfig {
   return true;
 }
 
+/**
+ * Modal for editing the JSON pricing config (USD per 1M tokens per model).
+ * Validates input before applying; shows an inline error banner on invalid JSON or schema.
+ */
 export function CostEditor({ costs, setCosts, onClose }: Props) {
   const [text, setText] = useState<string>(JSON.stringify(costs, null, 2));
   const [err, setErr] = useState<string | null>(null);

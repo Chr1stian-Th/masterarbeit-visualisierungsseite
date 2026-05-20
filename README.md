@@ -20,14 +20,6 @@ pnpm preview
 
 The production bundle lands in `dist/`.
 
-## Deploying to Vercel
-
-1. Push the repo to GitHub/GitLab/Bitbucket.
-2. Import the repo in Vercel.
-3. Vercel detects the Vite framework preset automatically — no configuration needed. Build command is `pnpm build`, output directory is `dist`.
-
-No environment variables, no API routes — the app is 100% static.
-
 ## Project structure
 
 ```

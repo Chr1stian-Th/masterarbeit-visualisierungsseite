@@ -13,6 +13,10 @@ interface Props {
   onClearAll: () => void;
 }
 
+/**
+ * Scrollable list of loaded eval files with checkboxes for toggling selection.
+ * Also renders a sub-list of linked source files and select-all / clear buttons.
+ */
 export function FileList({
   files,
   sourceFiles,

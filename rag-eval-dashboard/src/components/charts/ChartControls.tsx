@@ -12,6 +12,10 @@ interface Props {
   onExport: () => void;
 }
 
+/**
+ * Toolbar above the chart: chart-type tabs (bar/radar), group-by and y-axis
+ * selects, and the Export PNG button.
+ */
 export function ChartControls({
   chartType,
   setChartType,

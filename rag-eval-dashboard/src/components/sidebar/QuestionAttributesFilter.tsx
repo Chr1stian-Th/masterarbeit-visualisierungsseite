@@ -33,6 +33,11 @@ const DIFF_PRESETS: Array<[string, string, number, number]> = [
   ['v.hard', '>0.6', 0.6, 1],
 ];
 
+/**
+ * Sidebar section for filtering by question-level attributes: domain, answer type,
+ * difficulty range, and AI Act relevance. Only rendered after a questions metadata
+ * file has been loaded.
+ */
 export function QuestionAttributesFilter({
   questionFileNames,
   questionsMeta: _questionsMeta,

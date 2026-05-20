@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { AiActFilter, CILevel, GrounderFilter } from '@/types';
 
+/** Snapshot of all active sidebar filter values. Empty Sets mean "no filter applied". */
 export interface FiltersState {
   selApproaches: Set<string>;
   selGenModels: Set<string>;
@@ -10,6 +11,7 @@ export interface FiltersState {
   selMetrics: Set<string>;
   selClassTiers: Set<string>;
   grounderFilter: GrounderFilter;
+  /** String representation of the max-latency cutoff; empty string means unlimited. */
   latencyMax: string;
   selDomains: Set<string>;
   selAnswerTypes: Set<string>;
@@ -19,6 +21,7 @@ export interface FiltersState {
   ciLevel: CILevel;
 }
 
+/** Setter callbacks for each field in FiltersState. */
 export interface FiltersSetters {
   setSelApproaches: (s: Set<string>) => void;
   setSelGenModels: (s: Set<string>) => void;
@@ -35,6 +38,7 @@ export interface FiltersSetters {
   setDiffMin: (n: number) => void;
   setDiffMax: (n: number) => void;
   setCiLevel: (v: CILevel) => void;
+  /** Reset all question-metadata filters (domain, answer type, difficulty, AI Act) to defaults. */
   resetQuestionFilters: () => void;
 }
 

@@ -19,6 +19,7 @@ import type {
 } from '@/types';
 import type { FiltersState } from './useFilters';
 
+/** Input configuration passed to useDerivedData. */
 export interface UseDerivedDataInput {
   files: EvalFile[];
   sourceFiles: Record<string, SourceFile>;
@@ -28,9 +29,11 @@ export interface UseDerivedDataInput {
   charsPerToken: number;
   groupDim: GroupDim;
   yMetric: YMetric;
+  /** Called whenever the set of available metric names changes (e.g. after a new file is loaded). */
   onMetricsDiscovered: (m: string[]) => void;
 }
 
+/** All derived values the dashboard UI needs, pre-filtered and memoized. */
 export interface UseDerivedDataResult {
   allMetrics: string[];
   allApproaches: string[];

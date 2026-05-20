@@ -13,6 +13,11 @@ interface Props {
   totalCount: number;
 }
 
+/**
+ * Filter and search bar rendered above the per-question table.
+ * Controls pass-status, score range, and free-text search, and displays the
+ * filtered / total row count.
+ */
 export function PerQuestionToolbar({
   passFilter,
   setPassFilter,

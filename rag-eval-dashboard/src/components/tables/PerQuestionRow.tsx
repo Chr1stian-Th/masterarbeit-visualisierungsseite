@@ -11,6 +11,11 @@ interface Props {
   onTogglePassFilter: (status: PassFilter) => void;
 }
 
+/**
+ * Single `<tr>` in the per-question table.
+ * Clicking the row opens the detail modal; clicking the status badge toggles
+ * a pass-status filter on the table.
+ */
 export function PerQuestionRow({
   row: r,
   metrics,

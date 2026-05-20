@@ -20,6 +20,11 @@ interface SortedRow extends PerQRow {
   qDiff: number | null;
 }
 
+/**
+ * Paginated, sortable table of all per-question rows across active eval files.
+ * Manages its own local state for pass-status filter, score range, free-text
+ * search, sort key/direction, and pagination limit.
+ */
 export function PerQuestionTable({
   rows,
   onOpen,

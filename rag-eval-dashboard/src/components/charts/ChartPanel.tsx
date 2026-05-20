@@ -28,6 +28,11 @@ interface Props {
   hasQuestionsMeta: boolean;
 }
 
+/**
+ * Wrapper that renders either BarChart or RadarChart alongside ChartControls.
+ * Holds the chart `ref`, computes the export title from current settings, and
+ * forwards the PNG export trigger from the controls button to the active chart.
+ */
 export function ChartPanel({
   chartType,
   setChartType,

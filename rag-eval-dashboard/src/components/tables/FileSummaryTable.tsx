@@ -9,6 +9,10 @@ interface Props {
   yMetric: YMetric;
 }
 
+/**
+ * Aggregated results table — one row per active eval file.
+ * Shows per-metric averages or pass rates with CI bands, and cost totals.
+ */
 export function FileSummaryTable({ fileAggs, selMetrics, allMetrics, yMetric }: Props) {
   const metrics = allMetrics.filter(m => selMetrics.has(m));
   return (

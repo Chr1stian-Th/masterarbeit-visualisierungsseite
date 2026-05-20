@@ -3,6 +3,7 @@ interface Props {
   onToggle: () => void;
 }
 
+/** Fixed-position button in the top-right corner that toggles the global light/dark theme. */
 export function ThemeToggle({ darkMode, onToggle }: Props) {
   return (
     <button

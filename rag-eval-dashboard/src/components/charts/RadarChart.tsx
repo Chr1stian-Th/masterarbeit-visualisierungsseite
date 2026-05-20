@@ -15,6 +15,12 @@ interface Props {
   onColorPick: (t: ColorPickerTarget) => void;
 }
 
+/**
+ * SVG radar/spider chart comparing metric profiles across groups.
+ * Hovering a series highlights it and dims the others.
+ * Clicking a legend item opens the color picker for that series.
+ * Exposes an imperative `exportPng` handle via `ref` for PNG download.
+ */
 export const RadarChart = forwardRef<ChartExportHandle, Props>(function RadarChart(
   { data, yMetric, customColors, onColorPick },
   ref

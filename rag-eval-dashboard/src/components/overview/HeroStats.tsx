@@ -9,6 +9,11 @@ interface Props {
   allMetrics: string[];
 }
 
+/**
+ * Overview statistics strip at the top of the main panel.
+ * Aggregates all visible per-question rows into four stat cards:
+ * average score, pass rate, total cost, and total tokens — each with a CI band.
+ */
 export function HeroStats({ rows, ciLevel, selMetrics, allMetrics }: Props) {
   const allScores: number[] = [];
   let tp = 0;

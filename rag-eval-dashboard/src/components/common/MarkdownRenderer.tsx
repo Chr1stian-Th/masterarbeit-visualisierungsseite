@@ -5,6 +5,10 @@ interface Props {
   className?: string;
 }
 
+/**
+ * Renders a Markdown string as sanitized HTML via the custom `markdownToHtml` parser.
+ * Returns null when `text` is empty or undefined.
+ */
 export function MarkdownRenderer({ text, className }: Props) {
   if (!text) return null;
   return (

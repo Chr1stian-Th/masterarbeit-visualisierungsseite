@@ -58,6 +58,11 @@ interface Props {
   onOpenCostEditor: () => void;
 }
 
+/**
+ * Left-hand navigation and filter panel. Composes FileDrop, FileList,
+ * PillsFilter, SidebarSection, and QuestionAttributesFilter into a vertically
+ * scrollable sidebar that can be fully collapsed with a toggle button.
+ */
 export function Sidebar(props: Props) {
   const {
     sidebarCollapsed,

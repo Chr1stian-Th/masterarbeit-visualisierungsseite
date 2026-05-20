@@ -7,6 +7,10 @@ interface Props {
   onPick: (files: File[]) => void;
 }
 
+/**
+ * Drag-and-drop target plus a hidden `<input type="file">` for uploading JSON files.
+ * Clicking the drop zone opens the browser file picker.
+ */
 export function FileDrop({ dragOver, setDragOver, onDrop, onPick }: Props) {
   const ref = useRef<HTMLInputElement>(null);
   return (
