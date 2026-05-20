@@ -1,0 +1,87 @@
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line-2);
+  vertical-align: top;
+}
+th {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--bg-2);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+tr:hover td { background: rgba(0,0,0,.02); }
+td.num { text-align: right; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  padding: 1px 6px;
+  border-radius: 2px;
+  letter-spacing: .03em;
+}
+.badge.pass       { background: #d3e9dc; color: var(--pass); }
+.badge.fail       { background: #f3d3d3; color: var(--fail); }
+.badge.err        { background: #f4e0c0; color: var(--warn); }
+.badge.tier       { background: var(--bg-2); color: var(--ink-2); font-size: 9px; }
+.badge.grounded   { background: #d3e9dc; color: var(--pass); }
+.badge.ungrounded { background: #f3d3d3; color: var(--fail); }
+.badge.partial    { background: #e8e4d0; color: var(--warn); }
+.badge.skip       { background: #ece8db; color: var(--ink-3); }
+.badge.domain     { background: var(--bg-2); color: var(--ink-2); font-size: 9px; border: 1px solid var(--line); }
+.badge.atype      { background: var(--bg-2); color: var(--ink-3); font-size: 8.5px; border: 1px solid var(--line-2); }
+
+/* Difficulty bar (Q-meta) */
+.diff-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.qmeta-cell { display: flex; flex-direction: column; gap: 3px; }
+.diff-bar-wrap { display: flex; align-items: center; gap: 4px; }
+.diff-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+  flex: 1;
+  overflow: hidden;
+  min-width: 32px;
+}
+.diff-bar-fill { height: 100%; border-radius: 2px; }
+
+/* Per-question filter toolbar (above the table) */
+.pq-toolbar {
+  padding: 10px 16px;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+}
+.pq-toolbar .field { margin-bottom: 0; min-width: 120px; }
+.pq-toolbar .field label { font-size: 9px; }
+.pq-count {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-3);
+  align-self: center;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.status-th { cursor: pointer; white-space: nowrap; }
+.status-th:hover { color: var(--ink); }
+.badge-clickable { cursor: pointer; }
+.badge-clickable:hover { opacity: .75; }

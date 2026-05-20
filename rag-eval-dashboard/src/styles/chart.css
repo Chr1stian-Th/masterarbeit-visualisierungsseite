@@ -1,0 +1,45 @@
+.tt {
+  position: absolute;
+  pointer-events: none;
+  background: var(--ink);
+  color: var(--panel);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  padding: 7px 9px;
+  border-radius: 2px;
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+.tt-row { display: flex; gap: 8px; align-items: center; }
+.tt-row .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+}
+.legend .item {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition: background .1s, border-color .1s;
+  user-select: none;
+}
+.legend .item:hover { background: var(--bg-2); border-color: var(--line); }
+.legend .swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+  border: 1.5px solid rgba(0,0,0,.15);
+  transition: transform .1s;
+}
+.legend .item:hover .swatch { transform: scale(1.2); }

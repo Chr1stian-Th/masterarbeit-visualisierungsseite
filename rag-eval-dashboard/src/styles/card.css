@@ -1,0 +1,56 @@
+/* Cards */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.card-pad { padding: 22px 24px; }
+.grid { display: grid; gap: 16px; }
+.g2 { grid-template-columns: 1fr 1fr; }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) {
+  .g2, .g3, .g4 { grid-template-columns: 1fr; }
+}
+
+/* KPI stat */
+.stat { padding: 16px 18px; }
+.stat .label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.stat .val {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+}
+.stat .ci {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-3);
+  margin-top: 4px;
+}
+
+/* Chart frame */
+.chart-frame {
+  padding: 22px 24px 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.chart-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+.chart-controls .field { margin-bottom: 0; min-width: 140px; }
+.chart-svg-wrap { width: 100%; overflow-x: auto; }
