@@ -71,15 +71,16 @@ export function App() {
   const hasSourceFiles = Object.keys(loader.sourceFiles).length > 0;
   const hasQuestionsMeta = Object.keys(loader.questionsMeta).length > 0;
 
+  const { collapse: collapseSection } = sections;
   useEffect(() => {
-    if (hasFiles) sections.collapse('files');
-  }, [hasFiles, sections]);
+    if (hasFiles) collapseSection('files');
+  }, [hasFiles, collapseSection]);
   useEffect(() => {
-    if (hasSourceFiles) sections.collapse('sourcefiles');
-  }, [hasSourceFiles, sections]);
+    if (hasSourceFiles) collapseSection('sourcefiles');
+  }, [hasSourceFiles, collapseSection]);
   useEffect(() => {
-    if (hasQuestionsMeta) sections.collapse('qmeta');
-  }, [hasQuestionsMeta, sections]);
+    if (hasQuestionsMeta) collapseSection('qmeta');
+  }, [hasQuestionsMeta, collapseSection]);
 
   const ciPct = (+filters.ciLevel * 100).toFixed(0);
 
